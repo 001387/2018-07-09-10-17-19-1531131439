@@ -2,18 +2,25 @@ package practice08;
 
 public class Klass {
 	private int number;
-	private String leader;
+	private Student leader;
+	
+	public Klass(int number) {
+		this.number = number;
+	}
 	
 	public int getNumber() {
 		return number;
 	}
 
-	public Klass(int number) {
-		this.number = number;
+	public Student getLeader() {
+		return leader;
 	}
+
+	public Student assignLeader(Student s) {
+		return leader = s;
+	}
+	
 	public String getDisplayName() {
-		String DisplayName = "Class "+this.getNumber();
-		return DisplayName;
-		
+		return  "Class " + this.getNumber();
 	}
 }
