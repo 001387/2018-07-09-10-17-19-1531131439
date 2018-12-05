@@ -21,12 +21,9 @@ public class Student extends Person{
 	}
 
 	public String introduce() {
-		String introduce =super.introduce()+ " I am a Student. I am at Class " + this.klass.getNumber() + ".";
 		if(this.klass.getLeader() != null && this.klass.getLeader().getName() == this.getName()) {
-			return introduce = super.introduce() + " I am a Student. I am Leader of Class " + klass.getNumber() + ".";
+			return  super.introduce() + " I am a Student. I am Leader of Class " + klass.getNumber() + ".";
 		}
-		else {
-			return introduce;	
-		}
+		return super.introduce()+ " I am a Student. I am at Class " + this.klass.getNumber() + ".";	
 	}
 }

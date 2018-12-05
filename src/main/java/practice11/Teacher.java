@@ -22,47 +22,37 @@ public class Teacher extends Person{
 	}
 
 	public String introduce() {
-		String introduce;
 		if(null == this.classes)
-			introduce = super.introduce() + " I am a Teacher. I teach No Class.";
-		else {
-			String k = "";
-			for (Klass klass : classes) {
-				if(klass == classes.getLast()) {
-					k = k + klass.getNumber();
-				}
-				else {
-					k = k + klass.getNumber() + ", ";
-				}
+			return  super.introduce() + " I am a Teacher. I teach No Class.";
+		String k = "";
+		for (Klass klass : classes) {
+			if(klass == classes.getLast()) {
+				k = k + klass.getNumber();
 			}
-			introduce = super.introduce() + " I am a Teacher. I teach Class " + k + ".";
+			else 
+				k = k + klass.getNumber() + ", ";
 		}
-		return introduce;		
+		return super.introduce() + " I am a Teacher. I teach Class " + k + ".";
+		
 	}
 	
 	public boolean isTeaching(Student student) {
-		boolean bool = false;
 		for (Klass klass : classes) {
 			if(klass.isIn(student)) {
-				bool = true;
-				break;
+				return true;
 			}
 		}
-		return bool;
+		return false;
 	}
 /*	写一个introduceWith方法，传入一个student，比如Jerry，如果Jerry是Teacher教的班级则返回形如：
 	My name is Tom. I am 21 years old. I am a Teacher. I teach Jerry.*/
 	public String introduceWith(Student student) {
-		String introduceWith = null;
 		for (Klass klass : classes) {
 			if(klass.isIn(student)) {
-				introduceWith = super.introduce()+" I am a Teacher. I teach " + student.getName() + ".";				
-			}
-			else {
-				introduceWith = super.introduce()+" I am a Teacher. I don't teach " + student.getName() + ".";
+				return super.introduce()+" I am a Teacher. I teach " + student.getName() + ".";				
 			}
 		}
-		return introduceWith;
+		return super.introduce()+" I am a Teacher. I don't teach " + student.getName() + ".";
 	}
 	
 /*	public void teacherPrint(Student student) {

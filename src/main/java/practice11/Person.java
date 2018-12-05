@@ -25,17 +25,19 @@ public class Person {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if(obj instanceof Person) {
+		if (obj instanceof Person) {
 			Person p = (Person) obj;
 			if (p.getId() == this.id) {
-				return true;				
+				return true;
 			}
 		}
 		return false;
 	}
 
 	public String introduce() {
-		String introduce = "My name is "+getName()+". I am "+getAge()+" years old.";
-		return introduce;
+//		String introduce = "My name is "+getName()+". I am "+getAge()+" years old.";
+//		return introduce;
+		String msgTemplate = "My name is %s. I am %s years old.";
+		return String.format(msgTemplate, getName(),getAge());
 	}
 }

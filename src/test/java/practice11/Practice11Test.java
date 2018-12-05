@@ -1,6 +1,7 @@
 package practice11;
 
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -14,6 +15,9 @@ public class Practice11Test {
     private ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
+//    @BeforeClass
+//    @After
+//    @Afterclass
     public void setup() {
         klass2 = new Klass(2);
         System.setOut(new PrintStream(outContent));
